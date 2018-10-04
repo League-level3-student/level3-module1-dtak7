@@ -61,7 +61,7 @@ class DynamicIntArrayTest {
 		
 	}
 
-	@Test
+	/*@Test
 	void testSizeAndClear() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
 		dia.add(1);
@@ -71,5 +71,5 @@ class DynamicIntArrayTest {
 		dia.clear();
 		assertEquals(0, dia.size());
 	}
-	
+	*/
 }
