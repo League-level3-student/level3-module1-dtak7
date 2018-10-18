@@ -28,13 +28,27 @@ public class _03_MurderOfCrows {
     private void findTheDiamond() {
         /*
          * 1. One of the Crows has eaten the diamond. You need to search through the stomach of each Crow, 
-         * then print the name of the guilty Crow.
+         * then print the name of the guilty Crow
          */
+    	int count = 0;
       for(Crow c:theMurder) {
     	  c.getStomachContents();
-    	
-      }
-        /* 2. How many innocent crows had to die before the diamond was found? */
+    	 
+    	  String names=c.getName();
+    	  System.out.println(names+" "+c.getStomachContents());
+    	  /* 2. How many innocent crows had to die before the diamond was found? */
+    	  count++;
+ for(String s:c.getStomachContents()) {
+	
+	 if(s.equals("diamond")) {
+		 System.out.println(c.getName());
+		 System.out.println(count);
+		 System.exit(0);
+	 }
+ }
+        }
+    
+        
     	
     }
 
