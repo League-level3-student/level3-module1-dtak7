@@ -1,15 +1,32 @@
 package _01_IntroToArrayLists;
 
+import java.awt.Button;
+import java.awt.TrayIcon.MessageType;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 
 //Copyright The League of Amazing Programmers, 2015
 
-public class _06_IPodShuffle{
+public class _06_IPodShuffle implements ActionListener{
+	ArrayList<Song> songs = new ArrayList<Song>();
+	Song demoSong = new Song("demo.mp3");
+	Song weirdSong = new Song("secondSong.mp3");
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
 				
+				/*Song song = new Song("demo.mp3");
+				song.setDuration(10);
+				song.play();
+				*/
+			
 				
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
@@ -19,9 +36,39 @@ public class _06_IPodShuffle{
 		 * subsequent button clicks.
 		 */
 		
+		
+		songs.add(demoSong);
+		songs.add(weirdSong);
+			JFrame frame = new JFrame();
+			JPanel panel = new JPanel();
+			JButton button = new JButton("click for suprise");
+			panel.add(button);
+			frame.add(panel);
+			frame.setSize(300,300);
+			frame.setVisible(true);
+			button.addActionListener(this);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public static void main(String[] args) {
 		new _06_IPodShuffle();
+			
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		demoSong.stop();
+		weirdSong.stop();
+		Random rand = new Random();
+		int  n = rand.nextInt(3) + 1;
+		System.out.println(n);
+		if(n==1) {
+			demoSong.play();
+		}
+		if(n==2) {
+			weirdSong.play();
+		}
+		
 	}
 }
